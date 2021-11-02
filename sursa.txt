@@ -1,0 +1,17 @@
+begin_prog
+integer n , suma , i ;
+vector v[100] ;
+read n ;
+suma := 0 ;
+i := 0 ;
+while (( i < n )) {
+    read v[i] ;
+    i :++ ;
+}
+i := 0 ;
+while (( i < n )) {
+    suma := suma + v[i] ;
+    i :++ ;
+}
+write suma ;
+end_prog
