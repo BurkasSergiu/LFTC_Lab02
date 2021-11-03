@@ -90,13 +90,13 @@ def makeFIPandTS(encodings, atoms):
                     TS[atom[0]] = count
                     count += 1
     for atom in atomsForFIP:
-        if atom[0] in encodings:
-            FIP.append([encodings[atom[0]], -1])
-        if atom[0] in TS.keys():
-            if atom[0] in re.findall(identifiers, atom[0]):
-                FIP.append([encodings["ID"], TS[atom[0]]])
+        if atom[0].split('[')[0] in TS.keys():
+            if atom[0].split('[')[0] in re.findall(identifiers, atom[0].split('[')[0]):
+                FIP.append([encodings["ID"], TS[atom[0].split('[')[0]]])
             if atom[0].isnumeric():
                 FIP.append([encodings["CONST"], TS[atom[0]]])
+        if atom[0] in encodings:
+            FIP.append([encodings[atom[0]], -1])
     print(TS)
     print(FIP)
     # print(TS[atom[0]])
